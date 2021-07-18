@@ -1,0 +1,133 @@
+$bgColor: linear-gradient(#434343, #0C0C0C)
+$colorprimary: #32e0c4
+
+*,*::before,*::after
+  box-sizing: border-box
+  position: relative
+
+=size($w, $h:$w, $r:50%)
+  width: $w
+  height: $h
+  border-radius: $r
+  
+=flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+  
+=ab_center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+
+
+html,body
+  font-family: 'Orbitron', sans-serif
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+  background: $bgColor
+  +flexCenter
+  flex-direction: column
+  
+.title
+  font-family: '微軟正黑體'
+  letter-spacing: 8px
+  font-size: 16px
+  color: #fff
+
+%item
+  user-select: none
+  opacity: .6
+  color: #fff
+  border-radius: 50%
+  padding: 
+    right: 150px
+    left: 150px
+    top: 16px
+    bottom: 16px
+  cursor: pointer
+  +ab_center
+  top: 40px
+  transition: .5s
+  &:hover
+    background-color: $colorprimary
+    color: #000
+  &:active
+    transition: 0s 
+    box-shadow: 0px 0px 20px rgba(white,0.8) 
+  .md-48
+    font-size: 48px
+  
+.timer
+  overflow: hidden
+  +size(500px)
+  border: 1px solid $colorprimary
+  box-shadow: 0px 0px 10px rgba($colorprimary,0.6), inset 0px 0px 10px rgba($colorprimary,0.6)
+  +flexCenter
+  flex-direction: column
+  transition: 1s 
+  &:hover
+    border: 3px solid $colorprimary
+    box-shadow: 0px 0px 30px rgba($colorprimary,0.6), inset 0px 0px 30px rgba($colorprimary,0.6)
+      
+  .add
+    @extend %item
+     
+  .reduce
+    @extend %item
+    top: 460px
+    
+.displayTime
+  // background: linear-gradient(60deg, red, yellow, red, yellow, red)
+  // background-image: url(https://images.unsplash.com/photo-1470218091926-22a08a325802?ixlib=rb-1.2.1&auto=format&fit=crop&w=1491&q=80)
+  // background-position: center
+  font-size: 6rem
+  color: $colorprimary
+  text-shadow: 0px 0px 0.1em $colorprimary   
+  
+  // .text
+  //   background: $colorprimary
+  //   background-clip: text
+  // -webkit-background-clip: text
+  
+.option
+  +flexCenter
+  margin-top: 1.5rem
+  
+  
+[class^='btn']
+  user-select: none
+  font-size: 20px
+  cursor: pointer
+  color: $colorprimary
+  +size(4rem,4rem,50%)
+  margin: 
+    left: 1rem
+    right: 1rem
+  border: 1px solid $colorprimary 
+  +flexCenter
+  box-shadow: 0px 0px 10px rgba(black,0.6)
+  background-color: inherit
+  transition: .3s 
+  &:hover
+    background: linear-gradient(#a6f6f1, #32e0c4)
+    color: #000
+    border: 1px solid $colorprimary
+    transform: scale(1.2)
+  &:active
+    transition: 0s 
+    box-shadow: 0px 0px 10px rgba(white,0.6) 
+  &:focus
+    outline: none
+    
+  .md-36
+    font-size: 36px
+    
+.btn--pause
+  background: linear-gradient(#a6f6f1, #32e0c4)
+  color: #000
+  border: 1px solid $colorprimary
+  transform: scale(1.2)
